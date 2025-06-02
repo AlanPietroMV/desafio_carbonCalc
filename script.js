@@ -6,7 +6,7 @@ function saveData(formData) {
         formData: formData
     });
 }
-
+// a função abaixo cria ua tabela com os dados salvos do calculo de pegda de carbono //
 function displaySavedData() {
     db.allDocs({ include_docs: true, descending: true })
         .then(function (result) {
@@ -59,7 +59,7 @@ function displaySavedData() {
             console.log(err);
         });
 }
-
+// a função abaixo recebe os dados preenchidos no fomulário e mostra uma tabela com as inforações cadastradas //
 document.getElementById('carbonForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const formData = {
@@ -73,7 +73,7 @@ document.getElementById('carbonForm').addEventListener('submit', function (event
         console.log(err);
     });
 });
-
+// a função abaixo salva as informações no banco de dados local ao clicar no botão Salvar Dados (saveDataBtn) //
 document.getElementById('saveDataBtn').addEventListener('click', function () {
     const formData = {
         fuel: parseFloat(document.getElementById('fuel').value),
@@ -86,7 +86,7 @@ document.getElementById('saveDataBtn').addEventListener('click', function () {
         console.log(err);
     });
 });
-
+// a função abaixo, mostra a tabela salva ao clicar no botão Carregar Tabela (loadTableBtn)  //
 document.getElementById('loadTableBtn').addEventListener('click', function () {
     displaySavedData();
 });
